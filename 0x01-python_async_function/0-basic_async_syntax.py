@@ -1,16 +1,12 @@
 #!/usr/bin/env python3
-# 0-basic_async_syntax.py
-
-""" Aysynchronous function"""
+""" Type-annotated asynchronous coroutine """
 import asyncio
-import random
+from random import uniform
+from typing import Optional
 
 
 async def wait_random(max_delay: int = 10) -> float:
-    """Async function that returns a random float between 0 and max_delay
-    Args:
-        max_delay: int
-    Returns: float
-    """
-    await asyncio.sleep(1)
-    return random.random() * max_delay
+    """ Async function that waits random time between 0 and max_delay """
+    random: float = uniform(0, max_delay)
+    await asyncio.sleep(random)
+    return random
